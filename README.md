@@ -40,7 +40,7 @@ $ export VAULT_TOKEN='YOUR ROOT VAULT TOKEN'
 $ export VAULT_SCHEME='http'
 ```
 
-Then start the application:
+Then start the spring boot application:
 
 ```shell script
 $ mvn clean spring-boot:run
