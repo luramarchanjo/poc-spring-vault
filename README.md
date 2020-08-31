@@ -21,7 +21,7 @@ $ vault server -dev
 
 ```shell script
 $ export VAULT_ADDR='http://127.0.0.1:8200'
-$ export VAULT_TOKEN='YOUR ROOT VAULT VAULT_TOKEN'
+$ export VAULT_TOKEN='YOUR ROOT VAULT TOKEN'
 $ vault login $VAULT_TOKEN
 ```
 
@@ -36,7 +36,7 @@ $ vault kv put secret/poc-spring-vault database.username=luramarchanjo database.
 First configure the environment variable:
 
 ```shell script
-$ export VAULT_TOKEN='YOUR ROOT VAULT VAULT_TOKEN'
+$ export VAULT_TOKEN='YOUR ROOT VAULT TOKEN'
 $ export VAULT_SCHEME='http'
 ```
 
