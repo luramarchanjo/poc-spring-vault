@@ -5,18 +5,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationListener;
+import org.springframework.core.env.Environment;
 
 @SpringBootApplication
-@EnableConfigurationProperties(DatabaseProperties.class)
 public class Application implements ApplicationListener<ApplicationReadyEvent> {
 
     private final Logger log = LoggerFactory.getLogger(Application.class);
-    private final DatabaseProperties databaseProperties;
+    private final Environment environment;
 
-    public Application(DatabaseProperties databaseProperties) {
-        this.databaseProperties = databaseProperties;
+    public Application(Environment environment) {
+        this.environment = environment;
     }
 
     public static void main(String[] args) {
@@ -25,7 +24,10 @@ public class Application implements ApplicationListener<ApplicationReadyEvent> {
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
-        log.info("Database username=[{}] password=[{}]", databaseProperties.getUsername(), databaseProperties.getPassword());
+        final String databaseUsername = environment.getProperty("database.username");
+        final String databasePassword = environment.getProperty("database.password");
+
+        log.info("Database username=[{}] password=[{}]", databaseUsername, databasePassword);
     }
 
 }
