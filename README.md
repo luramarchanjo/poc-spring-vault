@@ -33,7 +33,7 @@ $ vault kv put secret/poc-spring-vault database.username=luramarchanjo database.
 
 4º We need to start the application, as shown below:
 
-First configure the environment variable:
+First configure the environment variables:
 
 ```shell script
 $ export VAULT_TOKEN='YOUR ROOT VAULT TOKEN'
