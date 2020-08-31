@@ -18,16 +18,16 @@ public class Application implements ApplicationListener<ApplicationReadyEvent> {
         this.environment = environment;
     }
 
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
-
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         final String databaseUsername = environment.getProperty("database.username");
         final String databasePassword = environment.getProperty("database.password");
 
         log.info("Database username=[{}] password=[{}]", databaseUsername, databasePassword);
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
     }
 
 }
