@@ -20,10 +20,12 @@ public class Application implements ApplicationListener<ApplicationReadyEvent> {
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
-        final String databaseUsername = environment.getProperty("database.username");
-        final String databasePassword = environment.getProperty("database.password");
-
-        log.info("Database username=[{}] password=[{}]", databaseUsername, databasePassword);
+        log.info("");
+        log.info("--------------------Properties--------------------");
+        log.info("database.username={}", environment.getProperty("database.username"));
+        log.info("database.password={}", environment.getProperty("database.password"));
+        log.info("--------------------------------------------------");
+        log.info("");
     }
 
     public static void main(String[] args) {
