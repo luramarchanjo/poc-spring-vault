@@ -35,9 +35,9 @@ $ vault kv put secret/poc-spring-vault database.username=luramarchanjo database.
 
 First configure the environment variable:
 
-```text
-VAULT_TOKEN=XXX
-VAULT_SCHEME=http
+```shell script
+$ export VAULT_TOKEN='YOUR ROOT VAULT VAULT_TOKEN'
+$ export VAULT_SCHEME='http'
 ```
 
 Then start the application:
