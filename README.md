@@ -46,7 +46,6 @@ Verify the logs:
 2020-08-31 10:56:23.053  INFO 2903 --- [           main] com.example.Application                  : database.username=luramarchanjo
 2020-08-31 10:56:23.054  INFO 2903 --- [           main] com.example.Application                  : database.password=1234567890
 2020-08-31 10:56:23.054  INFO 2903 --- [           main] com.example.Application                  : --------------------------------------------------
-2020-08-31 10:56:23.054  INFO 2903 --- [           main] com.example.Application                  : 
 ```
 
 # Be Happy
