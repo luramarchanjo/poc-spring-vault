@@ -24,6 +24,7 @@ public class Application implements ApplicationListener<ApplicationReadyEvent> {
         log.info("--------------------Properties--------------------");
         log.info("database.username={}", environment.getProperty("database.username"));
         log.info("database.password={}", environment.getProperty("database.password"));
+        log.info("database.platform={}", environment.getProperty("database.platform"));
         log.info("--------------------------------------------------");
         log.info("");
     }
