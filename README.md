@@ -54,6 +54,41 @@ Verify the logs:
 2020-08-31 10:56:23.053  INFO 2903 --- [           main] com.example.Application                  : --------------------Properties--------------------
 2020-08-31 10:56:23.053  INFO 2903 --- [           main] com.example.Application                  : database.username=luramarchanjo
 2020-08-31 10:56:23.054  INFO 2903 --- [           main] com.example.Application                  : database.password=1234567890
+2020-08-31 10:56:23.054  INFO 2903 --- [           main] com.example.Application                  : database.platform=MySQL
+2020-08-31 10:56:23.054  INFO 2903 --- [           main] com.example.Application                  : --------------------------------------------------
+```
+
+# Testing with Profile
+
+1º We need to create the secret, as shown below:
+   
+```shell script
+$ vault kv put secret/poc-spring-vault/prd database.username=prd-username database.password=prd-password
+```
+
+2º We need to create the file `application-prd.properties` with the properties:
+
+```properties
+database.username=${DB_USERNAME:[PRD] VAULT WILL REPLACE IT}
+database.password=${DB_PASSWORD:[PRD] VAULT WILL REPLACE IT}
+database.platform=${DB_PLATFORM:MySQL}
+```
+
+Then start the spring boot application:
+
+```shell script
+$ mvn clean spring-boot:run
+```
+
+Verify the logs:
+
+```text
+2020-08-31 10:56:23.050  INFO 2903 --- [           main] com.example.Application                  : Started Application in 1.908 seconds (JVM running for 2.542)
+2020-08-31 10:56:23.053  INFO 2903 --- [           main] com.example.Application                  : 
+2020-08-31 10:56:23.053  INFO 2903 --- [           main] com.example.Application                  : --------------------Properties--------------------
+2020-08-31 10:56:23.053  INFO 2903 --- [           main] com.example.Application                  : database.username=prd-username
+2020-08-31 10:56:23.054  INFO 2903 --- [           main] com.example.Application                  : database.password=prd-password
+2020-08-31 10:56:23.054  INFO 2903 --- [           main] com.example.Application                  : database.platform=MySQL
 2020-08-31 10:56:23.054  INFO 2903 --- [           main] com.example.Application                  : --------------------------------------------------
 ```
 
